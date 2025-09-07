@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #0f172a; color: #e2e8f0; }
+.container { max-width: 720px; margin: 0 auto; }
+h1 { margin: 0 0 16px; }
+.card { background: #111827; padding: 20px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+form { display: flex; gap: 8px; margin-bottom: 16px; }
+input[type="text"] { flex: 1; padding: 12px 14px; border: 1px solid #374151; background: #0b1220; color: #e5e7eb; border-radius: 12px; }
+button { padding: 10px 14px; border: none; border-radius: 12px; cursor: pointer; background: #3b82f6; color: white; font-weight: 600; }
+button.secondary { background: #475569; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid #1f2937; }
+li:last-child { border-bottom: none; }
+.task { display: flex; align-items: center; gap: 10px; }
+.task.done span { text-decoration: line-through; opacity: .6; }
+.badge { font-size: 12px; padding: 4px 8px; background: #1f2937; border-radius: 999px; }
+.row { display: flex; align-items: center; gap: 8px; }
