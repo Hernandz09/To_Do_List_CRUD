@@ -8,7 +8,7 @@
 | Jose Hernandez     | 👨‍💻 Developer     | Backend Developer  |
 | Yasumy Pastor      | 👨‍💻 Developer     | Backend Developer  |
 | Alexa Montenegro   | 👩‍💻 Developer     | Frontend Developer |
-| Camila Romero      | 👩‍💻 Developer     | Frontend Developer |
+| Camila Romero      | 👩🏻‍💻 Product Owner | Frontend Developer |
 
 
 ## 📌 Descripción
