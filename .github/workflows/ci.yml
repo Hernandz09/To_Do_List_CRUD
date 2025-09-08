@@ -1,8 +1,8 @@
-name: CI Pipeline
+name: CI Pipeline (Django + React)
 
 on:
   push:
-    branches: [ "main", "feature/testCI" ]
+    branches: [ "main", "feature/test" ]
   pull_request:
     branches: [ "main" ]
 
@@ -10,22 +10,61 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres: # O usa sqlite si prefieres algo más simple
+        image: postgres:14
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U user -d test_db"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
+    # --- Código del repo ---
     - name: Checkout código
       uses: actions/checkout@v3
 
+    # --- Backend: Django ---
     - name: Configurar Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11"   # cambia si usas otra versión
+        python-version: "3.11"
 
-    - name: Instalar dependencias
+    - name: Instalar dependencias Python
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Migraciones (SQLite para test)
+    - name: Migraciones Django
+      env:
+        DATABASE_URL: postgres://user:password@localhost:5432/test_db
       run: python manage.py migrate
 
-    - name: Ejecutar pruebas
+    - name: Ejecutar tests Django
+      env:
+        DATABASE_URL: postgres://user:password@localhost:5432/test_db
       run: python manage.py test
+
+    # --- Frontend: React ---
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "18"
+
+    - name: Instalar dependencias Node
+      working-directory: frontend  # ⚠️ cambia si tu carpeta de React tiene otro nombre
+      run: npm install
+
+    - name: Build de React
+      working-directory: frontend
+      run: npm run build --if-present
+
+    - name: Ejecutar tests React
+      working-directory: frontend
+      run: npm test -- --watchAll=false
