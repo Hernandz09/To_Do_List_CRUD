@@ -14,22 +14,20 @@ jobs:
     - name: Checkout código
       uses: actions/checkout@v3
 
-    - name: Configurar PHP
-      uses: shivammathur/setup-php@v2
+    - name: Configurar Python
+      uses: actions/setup-python@v4
       with:
-        php-version: '8.2'
+        python-version: "3.11"
 
     - name: Instalar dependencias
-      run: composer install --no-progress --prefer-dist --optimize-autoloader
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Configurar entorno
-      run: cp .env.example .env
+    - name: Configurar base de datos (SQLite para test)
+      run: |
+        python manage.py migrate --settings=mi_proyecto.settings
 
-    - name: Generar key de Laravel
-      run: php artisan key:generate
-
-    - name: Ejecutar migraciones
-      run: php artisan migrate --env=testing
-
-    - name: Ejecutar tests
-      run: php artisan test
+    - name: Ejecutar pruebas
+      run: |
+        python manage.py test --settings=mi_proyecto.settings
