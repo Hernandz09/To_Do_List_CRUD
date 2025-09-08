@@ -36,4 +36,5 @@ Crear una aplicación donde los usuarios puedan **gestionar sus tareas** de mane
    - 📄 Leer todas las tareas.
    - 🔄 Actualizar el estado de una tarea (pendiente ↔ completada).
    - ❌ Eliminar una tarea.
-3. Endpoints expuestos en:  
+#### Diagramas 
+![Imagen de WhatsApp 2025-09-07 a las 15 28 42_413acd98](https://github.com/user-attachments/assets/6f49971d-39b3-4688-8ac4-39a32f72661c)
