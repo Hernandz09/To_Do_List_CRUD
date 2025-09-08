@@ -36,5 +36,8 @@ Crear una aplicación donde los usuarios puedan **gestionar sus tareas** de mane
    - 📄 Leer todas las tareas.
    - 🔄 Actualizar el estado de una tarea (pendiente ↔ completada).
    - ❌ Eliminar una tarea.
-#### Diagramas 
+#### Diagrama de casos de uso 
+<img width="705" height="199" alt="NT0ngiCm383XNQSGsJEy9FCZ9UtMhKrtuOXYS6AGvAMbTwz3izZUVlXiB8rg99RM0EGi2iwQI7m447P6spCmDZUlnYlXFRRdYDTS3Ru1yqdAZZIJIPW4ZOIfGLASfxyIF5Wmv9k42_-S7h0huSbPek1VrNDzgIx1htwhp00VW6C0RDl__HTLTrNtLGymyhRiw_W2" src="https://github.com/user-attachments/assets/c5133de7-c875-4e11-ac16-56fb0fc11f0a" />
+
+#### Diagrama de Secuencia 
 ![Imagen de WhatsApp 2025-09-07 a las 15 28 42_413acd98](https://github.com/user-attachments/assets/6f49971d-39b3-4688-8ac4-39a32f72661c)
