@@ -1,0 +1,14 @@
+# Requirements para desarrollo y testing
+-r requirements.txt
+
+# Testing
+pytest==7.4.2
+pytest-django==4.5.2
+coverage==7.3.2
+
+# Linting y formateo
+flake8==6.0.0
+black==23.9.1
+
+# Base de datos para testing
+psycopg2-binary==2.9.7
